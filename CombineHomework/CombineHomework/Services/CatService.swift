@@ -46,4 +46,8 @@ final class CatService {
                 self?.subject.send($0)
             }
     }
+
+    func resetCounter() {
+        counter = 0
+    }
 }
