@@ -96,8 +96,6 @@ class ViewController: UIViewController {
 
     private func setupNavigationBar() {
         title = Text.title
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = Color.lightGray
 
         navigationController?.navigationBar.layer.masksToBounds = false
         navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
@@ -110,7 +108,7 @@ class ViewController: UIViewController {
             title: Text.resetButtonTitle,
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(resetButtonOnTap)
         )
     }
 
@@ -186,5 +184,10 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+
+    @objc private func resetButtonOnTap() {
+        catService.resetCounter()
+        dogService.resetCounter()
     }
 }

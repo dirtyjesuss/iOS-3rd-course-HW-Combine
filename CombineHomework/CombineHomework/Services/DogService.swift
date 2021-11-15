@@ -54,6 +54,10 @@ final class DogService {
             )
     }
 
+    func resetCounter() {
+        counter = 0
+    }
+
     private func fetchDogResponse() -> AnyPublisher<URL, Error> {
         return session.dataTaskPublisher(for: url)
             .map(\.data)
