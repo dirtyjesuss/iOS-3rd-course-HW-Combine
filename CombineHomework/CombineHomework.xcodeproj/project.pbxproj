@@ -19,6 +19,7 @@
 		ED7557012741450E001DDFC6 /* CatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7557002741450E001DDFC6 /* CatService.swift */; };
 		ED7557042741453E001DDFC6 /* CatFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7557032741453E001DDFC6 /* CatFact.swift */; };
 		ED75570627414592001DDFC6 /* DogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75570527414592001DDFC6 /* DogResponse.swift */; };
+		ED75570D2742F1D1001DDFC6 /* DogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75570C2742F1D1001DDFC6 /* DogService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		ED7557002741450E001DDFC6 /* CatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatService.swift; sourceTree = "<group>"; };
 		ED7557032741453E001DDFC6 /* CatFact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFact.swift; sourceTree = "<group>"; };
 		ED75570527414592001DDFC6 /* DogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogResponse.swift; sourceTree = "<group>"; };
+		ED75570C2742F1D1001DDFC6 /* DogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogService.swift; sourceTree = "<group>"; };
 		F0F8E1597AC40AACD7DCC2A6 /* Pods-CombineHomework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineHomework.release.xcconfig"; path = "Target Support Files/Pods-CombineHomework/Pods-CombineHomework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				ED7557002741450E001DDFC6 /* CatService.swift */,
+				ED75570C2742F1D1001DDFC6 /* DogService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				ED7556FE274131E7001DDFC6 /* ScoreLabel.swift in Sources */,
 				ED7556FC27412562001DDFC6 /* ContentView.swift in Sources */,
 				ED7556E12741055E001DDFC6 /* AppDelegate.swift in Sources */,
+				ED75570D2742F1D1001DDFC6 /* DogService.swift in Sources */,
 				ED7556E32741055E001DDFC6 /* SceneDelegate.swift in Sources */,
 				ED7557042741453E001DDFC6 /* CatFact.swift in Sources */,
 				ED7556F827412215001DDFC6 /* Constants.swift in Sources */,

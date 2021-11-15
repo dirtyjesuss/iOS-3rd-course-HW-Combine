@@ -11,6 +11,13 @@ import Combine
 
 class ViewController: UIViewController {
 
+    // MARK: - Nested types
+
+    private enum SegmentedControlIndex: Int {
+        case cat = 0
+        case dog = 1
+    }
+
     // MARK: - Constants
 
     private enum Constants {
@@ -51,6 +58,7 @@ class ViewController: UIViewController {
     private let segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: Constants.SegmentedControl.items)
         control.backgroundColor = Color.lightFillGray
+        control.selectedSegmentIndex = SegmentedControlIndex.cat.rawValue
 
         return control
     }()
@@ -72,6 +80,7 @@ class ViewController: UIViewController {
     private let scoreLabel: ScoreLabel = ScoreLabel()
 
     private let catService = CatService()
+    private let dogService = DogService()
 
     // MARK: - Instance methods
 
@@ -143,12 +152,39 @@ class ViewController: UIViewController {
                 self?.contentView.configure(with: catFact.fact)
             }
             .store(in: &cancellables)
-    }
 
+        dogService.publisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] data in
+                guard let image = UIImage(data: data) else { return }
+                self?.contentView.configure(with: image)
+            }
+            .store(in: &cancellables)
+
+
+        Publishers.CombineLatest(
+            catService.$counter,
+            dogService.$counter
+        )
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] count in
+                self?.scoreLabel.configure(cats: count.0, dogs: count.1)
+            }
+            .store(in: &cancellables)
+    }
+    
     // MARK: - Actions
 
     @objc private func moreButtonOnTap() {
-        catService.fetchData()
+        switch segmentedControl.selectedSegmentIndex {
+        case SegmentedControlIndex.cat.rawValue:
+            catService.fetchData()
+
+        case SegmentedControlIndex.dog.rawValue:
+            dogService.loadDogImageData()
+
+        default:
+            break
+        }
     }
 }
-

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DogResponse {
-    let message: URL
+struct DogResponse: Decodable {
+    let message: String
     let status: String
 }

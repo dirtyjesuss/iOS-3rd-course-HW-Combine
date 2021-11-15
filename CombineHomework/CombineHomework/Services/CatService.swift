@@ -13,6 +13,8 @@ final class CatService {
 
     // MARK: - Instance properties
 
+    @Published var counter: Int = 0
+
     var publisher: AnyPublisher<CatFact, Never> {
         subject.eraseToAnyPublisher()
     }
@@ -40,6 +42,7 @@ final class CatService {
             .replaceError(with: nil)
             .compactMap { $0 }
             .sink { [weak self] in
+                self?.counter += 1
                 self?.subject.send($0)
             }
     }
